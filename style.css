@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200;1,600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+body {
+    
+    background-color: #0abcf9;
+    background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+    min-height: 100vh;
+}
+
+
+
+/*main block*/
+.container{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/*start game block*/
+.game-start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.newGameButton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+}
+
+.game-start h1 {
+    font-size:3rem;
+    color:#fff;
+    text-shadow:#fff 0 0 1rem;
+}
+
+.choice-button-style{
+    display: inline-block;
+    background: #2196f3;
+    color: #fff;
+    padding: 12px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: Tahoma;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 100;
+  }
+
+
+
+
+  /* game */
+
+/* game block */
+.gameScreen{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 1.9rem;
+}
+
+  /*    game-table   */
+.gameScreen-block{
+    position: absolute;
+    min-height: 3rem;
+    min-width: 18rem;
+    background-color: #caf7ff;
+    border-radius: 10px;
+    margin-top: 5rem;
+    z-index: 2;
+}
+
+.gameScreen-role{
+    z-index: 1;
+    position:relative;
+}
+
+
+
+/* timer */
+.timerScreen{
+    display:none;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    flex-direction: column;
+    color: #fff;
+    font-size: 7rem;
+}
+
+
+
+  /* final */
+.finalScreen{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 2rem;
+}
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+.finalScreen-answer{
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
