@@ -5,7 +5,8 @@ const somePlace = ['Маяк', 'Больница', 'Дом пристарелы�
     'Школа', 'Лагерь', 'Концерт', 'Супермаркет', 'Свалка', 'Орбит. станция', 'Остров', 'Стройка', 
     'Пиратский корабль', 'Баня', 'Банк', 
 ]
-//var rowsarray = decoded_json.table.rows;
+//5 rem fix
+document.getElementById("gameScreen-block").style.marginTop = "5rem"
 
 var click = 0
 var roleArr = []
@@ -65,6 +66,13 @@ function showFinal(i){
         }
     }
 }
+function showNewGameButton(i){
+    if (i === true){
+        document.getElementById("newGameButton").style.display = 'flex';
+    } else {
+        document.getElementById("newGameButton").style.display = 'none'
+    }
+}
 
 //create random
 function getRandomInt(max) {
@@ -73,6 +81,7 @@ function getRandomInt(max) {
 
 function showStartScreen(){
     click = 0 
+    showNewGameButton(true)
     showStart(true)
     showGame(false)
     showTimer(false)
@@ -80,6 +89,7 @@ function showStartScreen(){
 }
 
 function showGameScreen(){
+    showNewGameButton(true)
     showStart(false)
     showGame(true)
     showTimer(false)
@@ -87,6 +97,7 @@ function showGameScreen(){
 }
 
 function showTimerScreen(){
+    showNewGameButton(false)
     showStart(false)
     showGame(false)
     showTimer(true)
@@ -95,7 +106,7 @@ function showTimerScreen(){
 }
 
 function showFinalScreen(){
-
+    showNewGameButton(true)
     showStart(false)
     showGame(false)
 
@@ -117,6 +128,7 @@ function init_step(roleArr){
 //numPlayer - players 
 function choose(numPlayer){
     //initialize
+    
     const secretPlaceName = somePlace[getRandomInt(somePlace.length)]
     const spyNum = getRandomInt(numPlayer)
     const roleArr = []
@@ -130,6 +142,7 @@ function choose(numPlayer){
             roleArr.push(secretPlaceName)
         }        
     }
+    
     document.getElementById('finalScreen-answer').innerHTML = spyNum+1
     console.log(roleArr);
     showGameScreen()
@@ -160,8 +173,9 @@ function step(roleArr, numPlayer){
 
 //move table under role
 function move() {
+    
     if (document.getElementById("gameScreen-block").style.marginTop == "5rem"){
-        document.getElementById("gameScreen-block").style.marginTop = "11.9rem";
+        document.getElementById("gameScreen-block").style.marginTop = "11.5rem";
     } 
     else {
         document.getElementById("gameScreen-block").style.marginTop = "5rem";
