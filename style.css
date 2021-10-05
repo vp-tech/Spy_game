@@ -81,6 +81,7 @@ body {
 
   /*    game-table   */
 .gameScreen-block{
+    display: flex;
     position: absolute;
     min-height: 3rem;
     min-width: 19rem;
@@ -88,6 +89,12 @@ body {
     border-radius: 10px;
     margin-top: 8rem;
     z-index: 2;
+    align-items: center;
+    justify-content: center;
+    
+}
+.gameScreen-block img{
+    max-width: 3rem ;
 }
 
 .gameScreen-role{
@@ -105,6 +112,7 @@ body {
 
 /* timer */
 .timerScreen{
+    min-width: 4em;
     display:none;
     align-items: center;
     justify-content: center;
@@ -114,7 +122,13 @@ body {
     font-size: 7rem;
 }
 
+.timerScreen button{
+    width: 6em;
+}
 
+.timerScreen-stopButton{
+    display: none;
+}
 
   /* final */
 .finalScreen{
@@ -125,6 +139,7 @@ body {
     color: #fff;
     font-size: 2rem;
 }
+
 
 @keyframes glow {
     from {

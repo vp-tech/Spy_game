@@ -164,15 +164,12 @@ function choose(numPlayer){
     step(roleArr,numPlayer)
 }
 
-
-
-
 //show role
 function step(roleArr, numPlayer){
     document.querySelector('#gameScreen-block').onclick = function (){
         showUpperTable(false)
     }
-
+    
     document.querySelector('#gameScreen-block-second').onclick = function (){
         if (click < numPlayer){
             document.getElementById('gameScreen-player').innerHTML=click+1
@@ -181,38 +178,47 @@ function step(roleArr, numPlayer){
             showUpperTable(true)
         }
         else{
-            //start timer
-            var someTime = 60 * (numPlayer+1),
-            display = document.querySelector('#time');
-            
             showTimerScreen()
-            startTimer(someTime, display);
+            
+            var duration = 60 * (numPlayer+1),
+            display = document.querySelector('#time')
+            if (numPlayer+1 < 10){
+                mins = '0'+(numPlayer+1)
+            } else{
+                mins = numPlayer+1
+            }
+            document.getElementById('time').innerHTML=mins+':00'
+            document.getElementById('timerScreen-startButton').style.display='flex'
+            document.getElementById('timerScreen-stopButton').style.display='none'
+            //start timer
+            startTimer(duration, display)
         }
-        
     }
-    
 }
 
 
 
 // timer
 function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    myVar = setInterval(function () {
-        
+    document.querySelector('#timerScreen-startButton').onclick = function(){
+        document.getElementById('timerScreen-startButton').style.display='none'
+        document.getElementById('timerScreen-stopButton').style.display='flex'
+        var timer = duration, minutes, seconds;
+        myVar = setInterval(function () {
+            
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
 
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.textContent = minutes + ":" + seconds;
 
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
 }
 
 function stopTimeOut(){

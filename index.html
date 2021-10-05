@@ -31,22 +31,19 @@
             <div>Номер игрока:</div>
             <div class="gameScreen-player" id="gameScreen-player">Ин</div>
             <div>Место:</div>
-            <div class="gameScreen-block" id="gameScreen-block"></div>
-            <div class="gameScreen-block second" id="gameScreen-block-second"></div>
+            <div class="gameScreen-block" id="gameScreen-block">
+                <img src="./img/down-arrow.png" alt="down-arrow">
+            </div>
+            <div class="gameScreen-block second" id="gameScreen-block-second">
+                <img src="./img/upload.png" alt="up-arrow">
+            </div>
             <div class="gameScreen-role" id="gameScreen-role">Тр</div>
-            
-
-
-
-           
-
-
-
         </div>
 
         <div class="timerScreen">
-            <span id="time">00:00</span>
-            <button class="timerScreen-stopButton choice-button-style" onclick="stopTimeOut()">Стоп</button>
+            <div id="time">00:00</div>
+            <button class="timerScreen-startButton choice-button-style" id="timerScreen-startButton" >Старт</button>
+            <button class="timerScreen-stopButton choice-button-style" id="timerScreen-stopButton" onclick="stopTimeOut()">Стоп</button>
         </div>
 
         <div class="finalScreen" ">
