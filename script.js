@@ -12,8 +12,6 @@ const somePlace = ['Маяк', 'Больница', 'Дом пристарелы�
     'Ресторан', 'Овощебаза', 'Полярная станция', 'Университет', 'Отель', 'Океанский лайнер', 'Казино',
     'Пассажирский поезд', 'Шатл'
 ]
-//5 rem fix
-document.getElementById("gameScreen-block").style.marginTop = "5rem"
 
 var click = 0
 var roleArr = []
@@ -74,6 +72,16 @@ function showFinal(i){
     }
 }
 
+function showUpperTable(i){
+    if (i === true){
+        document.getElementById('gameScreen-block-second').style.display='none'
+        document.getElementById('gameScreen-block').style.display='flex'
+    } else{
+        document.getElementById('gameScreen-block-second').style.display='flex'
+        document.getElementById('gameScreen-block').style.display='none'
+    }
+}
+
 function showNewGameButton(i){
     if (i === true){
         document.getElementById("newGameButton").style.display = 'flex';
@@ -127,6 +135,8 @@ function init_step(roleArr){
     document.getElementById('gameScreen-player').innerHTML=click+1
             document.getElementById('gameScreen-role').innerHTML=roleArr[click]
             click++
+            //show upper table
+            showUpperTable(true)
 }
 
 //numPlayer - players 
@@ -154,13 +164,21 @@ function choose(numPlayer){
     step(roleArr,numPlayer)
 }
 
+
+
+
 //show role
 function step(roleArr, numPlayer){
-    document.querySelector('#gameScreen-nextButton').onclick = function (){
+    document.querySelector('#gameScreen-block').onclick = function (){
+        showUpperTable(false)
+    }
+
+    document.querySelector('#gameScreen-block-second').onclick = function (){
         if (click < numPlayer){
             document.getElementById('gameScreen-player').innerHTML=click+1
             document.getElementById('gameScreen-role').innerHTML=roleArr[click]
             click++
+            showUpperTable(true)
         }
         else{
             //start timer
@@ -171,20 +189,11 @@ function step(roleArr, numPlayer){
             startTimer(someTime, display);
         }
         
-        }
+    }
     
 }
 
-//move table under role
-function move() {
-    
-    if (document.getElementById("gameScreen-block").style.marginTop == "5rem"){
-        document.getElementById("gameScreen-block").style.marginTop = "11.5rem";
-    } 
-    else {
-        document.getElementById("gameScreen-block").style.marginTop = "5rem";
-    }
-}
+
 
 // timer
 function startTimer(duration, display) {
