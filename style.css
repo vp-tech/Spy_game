@@ -112,7 +112,7 @@ body {
 
 /* timer */
 .timerScreen{
-    min-width: 4em;
+    min-width: 2em;
     display:none;
     align-items: center;
     justify-content: center;
